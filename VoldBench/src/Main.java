@@ -10,14 +10,12 @@ class Main {
         Option.parseArgs(_args);
         Option.displayOptions();
 
-        String bootstrapUrl = Option.getUrl() + ":" + Option.getPort();
+        /*String bootstrapUrl = Option.getUrl() + ":" + Option.getPort();
         StoreClientFactory factory = new SocketStoreClientFactory(new ClientConfig().setBootstrapUrls(bootstrapUrl));
 
         StoreClient<String, String> client = factory.getStoreClient(Option.getDBName());
 
         // create the value
-        client.put("some_key", "someValue");
-
-        System.out.println("done");
+        client.put("some_key", "someValue");*/
     }
 }

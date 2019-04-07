@@ -6,6 +6,7 @@ Becnhmark on the nosql DB, Voldemort.
 
 [![Build Status](https://travis-ci.com/PamplemousseMR/VoldBench.svg?branch=master)](https://travis-ci.com/PamplemousseMR/VoldBench)
 
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -17,6 +18,8 @@ These instructions will get you a copy of the project up and running on your loc
 ### Generation
 
 This project use Voldemort 1.10.0, the library is available in folders "dist" and "lib" in the Voldemort project.
+
+## Voldemort
 
 ### Build Voldemort
 
