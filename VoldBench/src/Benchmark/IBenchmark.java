@@ -1,5 +1,6 @@
 package Benchmark;
 
+import Activity.Option;
 import voldemort.client.StoreClient;
 
 public abstract class IBenchmark {
@@ -13,14 +14,28 @@ public abstract class IBenchmark {
     }
 
     public void bench() {
+        System.out.print("...");
+        setup();
+
+        System.out.print(" ...");
         long startTime = System.nanoTime();
         run();
         long endTime = System.nanoTime();
 
+        System.out.print(" ...");
+        clean();
+
         long duration = (endTime - startTime);
-        System.out.println("Benchmark : " + m_NAME + " => " + duration / 1000000.0);
+        System.out.println(" Benchmark on " + Option.getLoop() + " loops : " + m_NAME + " => " + duration / 1000000.0 + " ms : " + Option.getLoop()/ (duration / 1000000000.0) + " l/s");
+    }
+
+    protected void setup() {
     }
 
     protected abstract void run();
+
+    protected void clean(){
+
+    }
 
 }

@@ -1,5 +1,6 @@
 package Benchmark;
 
+import Activity.Option;
 import voldemort.client.StoreClient;
 
 public class Insert extends IBenchmark {
@@ -8,8 +9,17 @@ public class Insert extends IBenchmark {
         super("Insert", _client);
     }
 
+    @Override
     protected void run() {
-        m_CLIENT.put("Key", "Value");
+        for(long i=0L ; i< Option.getLoop() ; ++i) {
+            m_CLIENT.put("Key_" + i, "Value_" + i);
+        }
     }
 
+    @Override
+    protected void clean() {
+        for(long i=0L ; i< Option.getLoop() ; ++i) {
+            m_CLIENT.delete("Key_" + i);
+        }
+    }
 }

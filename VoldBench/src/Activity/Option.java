@@ -3,11 +3,12 @@ package Activity;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 
-class Option {
+public class Option {
 
     private static String s_URL = "tcp://localhost";
     private static int s_PORT = 6666;
     private static String s_DB_NAME = "test";
+    private static long s_LOOP = 100000;
 
     static String getUrl() {
         return s_URL;
@@ -21,6 +22,10 @@ class Option {
         return s_DB_NAME;
     }
 
+    public static long getLoop() {
+        return s_LOOP;
+    }
+
     static void parseArgs(String[] _args) {
         try {
             OptionParser parser = new OptionParser();
@@ -28,6 +33,7 @@ class Option {
             parser.accepts("u").withRequiredArg().ofType(String.class);
             parser.accepts("p").withRequiredArg().ofType(Integer.class);
             parser.accepts("n").withRequiredArg().ofType(String.class);
+            parser.accepts("l").withRequiredArg().ofType(Long.class);
 
             OptionSet options = parser.parse(_args);
 
@@ -43,6 +49,9 @@ class Option {
             }
             if (options.has("n")) {
                 s_DB_NAME = (String) options.valueOf("n");
+            }
+            if (options.has("l")) {
+                s_LOOP = (Long)options.valueOf("l");
             }
         } catch (Throwable _t) {
             displayHelp();

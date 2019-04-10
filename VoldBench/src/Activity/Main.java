@@ -1,6 +1,7 @@
 package Activity;
 
 import Benchmark.Insert;
+import Benchmark.InsertSynchronized;
 import voldemort.client.ClientConfig;
 import voldemort.client.SocketStoreClientFactory;
 import voldemort.client.StoreClient;
@@ -19,5 +20,7 @@ class Main {
 
         Insert ins = new Insert(client);
         ins.bench();
+        InsertSynchronized insSync = new InsertSynchronized(client);
+        insSync.bench();
     }
 }
