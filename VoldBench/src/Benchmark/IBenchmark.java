@@ -26,7 +26,7 @@ public abstract class IBenchmark {
         clean();
 
         long duration = (endTime - startTime);
-        System.out.println(" Benchmark on " + Option.getLoop() + " loops : " + m_NAME + " => " + duration / 1000000.0 + " ms : " + Option.getLoop()/ (duration / 1000000000.0) + " l/s");
+        System.out.println(" Benchmark on " + Option.getLoop() + " loops : " + m_NAME + " => " + duration / 1000000000.0 + " s : " + Option.getLoop()/ (duration / 1000000000.0) + " l/s");
     }
 
     protected void setup() {

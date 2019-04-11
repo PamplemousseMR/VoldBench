@@ -9,6 +9,7 @@ public class Option {
     private static int s_PORT = 6666;
     private static String s_DB_NAME = "test";
     private static long s_LOOP = 100000;
+    private static long s_DB_SIZE = 1000000;
 
     static String getUrl() {
         return s_URL;
@@ -26,6 +27,10 @@ public class Option {
         return s_LOOP;
     }
 
+    public static long getDBSize() {
+        return s_DB_SIZE;
+    }
+
     static void parseArgs(String[] _args) {
         try {
             OptionParser parser = new OptionParser();
@@ -34,6 +39,7 @@ public class Option {
             parser.accepts("p").withRequiredArg().ofType(Integer.class);
             parser.accepts("n").withRequiredArg().ofType(String.class);
             parser.accepts("l").withRequiredArg().ofType(Long.class);
+            parser.accepts("s").withRequiredArg().ofType(Long.class);
 
             OptionSet options = parser.parse(_args);
 
@@ -52,6 +58,9 @@ public class Option {
             }
             if (options.has("l")) {
                 s_LOOP = (Long)options.valueOf("l");
+            }
+            if (options.has("s")) {
+                s_DB_SIZE = (Long)options.valueOf("s");
             }
         } catch (Throwable _t) {
             displayHelp();

@@ -1,5 +1,6 @@
 package Activity;
 
+import Benchmark.Find;
 import Benchmark.Insert;
 import Benchmark.InsertSynchronized;
 import voldemort.client.ClientConfig;
@@ -22,5 +23,7 @@ class Main {
         ins.bench();
         InsertSynchronized insSync = new InsertSynchronized(client);
         insSync.bench();
+        Find find = new Find(client);
+        find.bench();
     }
 }

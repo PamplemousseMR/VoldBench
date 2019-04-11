@@ -4,7 +4,6 @@ import Activity.Option;
 import voldemort.client.StoreClient;
 import voldemort.versioning.Versioned;
 
-
 public class InsertSynchronized extends IBenchmark {
 
     public InsertSynchronized(StoreClient<String, String> _client) {
