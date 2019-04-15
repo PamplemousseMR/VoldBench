@@ -6,7 +6,6 @@ Becnhmark on the nosql DB, Voldemort.
 
 [![Build Status](https://travis-ci.com/PamplemousseMR/VoldBench.svg?branch=master)](https://travis-ci.com/PamplemousseMR/VoldBench)
 
-
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
