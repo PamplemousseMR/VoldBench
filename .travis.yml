@@ -3,31 +3,10 @@ sudo: false
 
 matrix:
   include:
-    #==============================
-    #
-    #     osx 
-    #
-    #==============================
-
-    - os: osx
-      compiler: javac
-      jdk: oraclejdk11
-
-    - os: osx
-      compiler: javac
-      jdk: openjdk9
-
-    - os: osx
-      compiler: javac
-      jdk: openjdk10
-
-    - os: osx
-      compiler: javac
-      jdk: openjdk11
 
     #==============================
     #
-    #     linux 
+    #     linux oracle
     #
     #==============================
 
@@ -42,6 +21,12 @@ matrix:
     - os: linux
       compiler: javac
       jdk: oraclejdk11
+
+    #==============================
+    #
+    #     linux open
+    #
+    #==============================
 
     - os: linux
       compiler: javac
