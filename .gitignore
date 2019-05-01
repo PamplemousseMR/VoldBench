@@ -3,5 +3,6 @@
 out/
 
 VoldBench/VoldBench\.iml
+build/
 
 *.log
