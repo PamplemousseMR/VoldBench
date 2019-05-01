@@ -8,9 +8,9 @@ public class Option {
     private static String s_VDM_URL = "tcp://localhost";
     private static int s_VDM_PORT = 6666;
     private static String s_VDM_NAME = "test";
-    private static String s_SQL_URL = "jdbc:oracle:thin:osr-oracle.unistra.fr:1521/osr";
-    private static String s_SQL_LOGIN = "f_hanser";
-    private static String s_SQL_PWD = "flosqlplus";
+    private static String s_SQL_URL = "jdbc:mysql://localhost:3306/bdd_sdzee?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+    private static String s_SQL_LOGIN = "root";
+    private static String s_SQL_PWD = "rootpassword";
     private static long s_LOOP = 1000;
     private static long s_DB_SIZE = 10000;
 
