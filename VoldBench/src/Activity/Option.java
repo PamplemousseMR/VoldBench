@@ -5,22 +5,37 @@ import joptsimple.OptionSet;
 
 public class Option {
 
-    private static String s_URL = "tcp://localhost";
-    private static int s_PORT = 6666;
-    private static String s_DB_NAME = "test";
-    private static long s_LOOP = 100000;
-    private static long s_DB_SIZE = 1000000;
+    private static String s_VDM_URL = "tcp://localhost";
+    private static int s_VDM_PORT = 6666;
+    private static String s_VDM_NAME = "test";
+    private static String s_SQL_URL = "jdbc:oracle:thin:osr-oracle.unistra.fr:1521/osr";
+    private static String s_SQL_LOGIN = "f_hanser";
+    private static String s_SQL_PWD = "flosqlplus";
+    private static long s_LOOP = 1000;
+    private static long s_DB_SIZE = 10000;
 
-    static String getUrl() {
-        return s_URL;
+    static String getVDMUrl() {
+        return s_VDM_URL;
     }
 
-    static int getPort() {
-        return s_PORT;
+    static int getVDMPort() {
+        return s_VDM_PORT;
     }
 
-    static String getDBName() {
-        return s_DB_NAME;
+    static String getVDMName() {
+        return s_VDM_NAME;
+    }
+
+    static String getSQLUrl() {
+        return s_SQL_URL;
+    }
+
+    static String getSQLLogin() {
+        return s_SQL_LOGIN;
+    }
+
+    static String getSQLPwd() {
+        return s_SQL_PWD;
     }
 
     public static long getLoop() {
@@ -35,9 +50,12 @@ public class Option {
         try {
             OptionParser parser = new OptionParser();
             parser.accepts("h");
-            parser.accepts("u").withRequiredArg().ofType(String.class);
-            parser.accepts("p").withRequiredArg().ofType(Integer.class);
-            parser.accepts("n").withRequiredArg().ofType(String.class);
+            parser.accepts("vdm-u").withRequiredArg().ofType(String.class);
+            parser.accepts("vdm-p").withRequiredArg().ofType(Integer.class);
+            parser.accepts("vdm-n").withRequiredArg().ofType(String.class);
+            parser.accepts("sql-u").withRequiredArg().ofType(String.class);
+            parser.accepts("sql-l").withRequiredArg().ofType(String.class);
+            parser.accepts("vdm-p").withRequiredArg().ofType(String.class);
             parser.accepts("l").withRequiredArg().ofType(Long.class);
             parser.accepts("s").withRequiredArg().ofType(Long.class);
 
@@ -47,14 +65,23 @@ public class Option {
                 displayHelp();
                 System.exit(0);
             }
-            if (options.has("u")) {
-                s_URL = (String) options.valueOf("u");
+            if (options.has("vdm-u")) {
+                s_VDM_URL = (String) options.valueOf("vdm-u");
             }
-            if (options.has("p")) {
-                s_PORT = (Integer) options.valueOf("p");
+            if (options.has("vdm-p")) {
+                s_VDM_PORT = (Integer) options.valueOf("vdm-p");
             }
-            if (options.has("n")) {
-                s_DB_NAME = (String) options.valueOf("n");
+            if (options.has("vdm-n")) {
+                s_VDM_NAME = (String) options.valueOf("vdm-n");
+            }
+            if (options.has("sql-u")) {
+                s_SQL_URL = (String) options.valueOf("sql-u");
+            }
+            if (options.has("sql-l")) {
+                s_SQL_LOGIN = (String) options.valueOf("sql-l");
+            }
+            if (options.has("vdm-p")) {
+                s_SQL_PWD = (String) options.valueOf("vdm-p");
             }
             if (options.has("l")) {
                 s_LOOP = (Long)options.valueOf("l");
@@ -69,16 +96,22 @@ public class Option {
     }
 
     static void displayOptions() {
-        System.out.println("url : " + s_URL);
-        System.out.println("port : " + s_PORT);
-        System.out.println("db name : " + s_DB_NAME);
+        System.out.println("voldemort url : " + s_VDM_URL);
+        System.out.println("voldemort port : " + s_VDM_PORT);
+        System.out.println("voldemort name : " + s_VDM_NAME);
+        System.out.println("sql url : " + s_SQL_URL);
+        System.out.println("sql login : " + s_SQL_LOGIN);
+        System.out.println("sql password : " + s_SQL_PWD);
     }
 
     private static void displayHelp() {
         System.out.println("-h: display help");
-        System.out.println("-u url: set the url");
-        System.out.println("-p port: set the port");
-        System.out.println("-n : set the db name");
+        System.out.println("-vdm-u url: set the voldemort url");
+        System.out.println("-vdm-p port: set the voldemort port");
+        System.out.println("-vdm-n : set the db voldemort name");
+        System.out.println("-sql-u url: set the sql url");
+        System.out.println("-sql-l port: set the sql logni");
+        System.out.println("-sql-p : set the db sql password");
     }
 
 }

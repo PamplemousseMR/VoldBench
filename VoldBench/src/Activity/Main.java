@@ -14,10 +14,10 @@ class Main {
         Option.parseArgs(_args);
         Option.displayOptions();
 
-        String serverUrl = Activity.Option.getUrl() + ":" + Activity.Option.getPort();
+        String serverUrl = Activity.Option.getVDMUrl() + ":" + Activity.Option.getVDMPort();
         StoreClientFactory factory = new SocketStoreClientFactory(new ClientConfig().setBootstrapUrls(serverUrl));
 
-        StoreClient<String, String> client = factory.getStoreClient(Activity.Option.getDBName());
+        StoreClient<String, String> client = factory.getStoreClient(Activity.Option.getVDMName());
 
         Insert ins = new Insert(client);
         ins.bench();
