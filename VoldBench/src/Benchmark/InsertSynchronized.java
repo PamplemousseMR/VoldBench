@@ -3,11 +3,12 @@ package Benchmark;
 import Activity.Option;
 import voldemort.client.StoreClient;
 import voldemort.versioning.Versioned;
+import java.sql.Statement;
 
 public class InsertSynchronized extends IBenchmark {
 
-    public InsertSynchronized(StoreClient<String, String> _client) {
-        super("Insert synchronized", _client);
+    public InsertSynchronized(StoreClient<String, String> _client, Statement _sql) {
+        super("Insert synchronized", _client, _sql);
     }
 
     @Override
@@ -19,7 +20,7 @@ public class InsertSynchronized extends IBenchmark {
     }
 
     @Override
-    protected void run() {
+    protected void runVoldemort() {
         for(long i=0 ; i< Option.getLoop() ; ++i) {
             // Get a versioned version
             Versioned<String> versioned = m_CLIENT.get("Key_" + i);
@@ -32,6 +33,10 @@ public class InsertSynchronized extends IBenchmark {
             // Else we retry it
             --i;
         }
+    }
+
+    @Override
+    protected void runSQL() {
     }
 
     @Override

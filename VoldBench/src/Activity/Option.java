@@ -9,6 +9,7 @@ public class Option {
     private static int s_VDM_PORT = 6666;
     private static String s_VDM_NAME = "test";
     private static String s_SQL_URL = "jdbc:mysql://localhost:3306/bdd_sdzee?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+    private static String s_SQL_CLASSNAME = "com.mysql.cj.jdbc.Driver";
     private static String s_SQL_LOGIN = "root";
     private static String s_SQL_PWD = "rootpassword";
     private static long s_LOOP = 1000;
@@ -29,6 +30,8 @@ public class Option {
     static String getSQLUrl() {
         return s_SQL_URL;
     }
+
+    static String getClassName() { return  s_SQL_CLASSNAME; }
 
     static String getSQLLogin() {
         return s_SQL_LOGIN;
