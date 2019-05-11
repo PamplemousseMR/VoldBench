@@ -1,8 +1,6 @@
 package Activity;
 
-import Benchmark.Find;
-import Benchmark.Insert;
-import Benchmark.InsertSynchronized;
+import Benchmark.*;
 import voldemort.client.ClientConfig;
 import voldemort.client.SocketStoreClientFactory;
 import voldemort.client.StoreClient;
@@ -38,6 +36,12 @@ class Main {
 
             Find find = new Find(client, statement);
             find.bench();
+
+            Update update = new Update(client, statement);
+            update.bench();
+
+            UpdateSynchronized updateSynchronized = new UpdateSynchronized(client, statement);
+            updateSynchronized.bench();
 
             connection.close();
         } catch (Exception e) {
