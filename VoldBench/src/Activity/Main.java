@@ -29,7 +29,7 @@ class Main {
             Class.forName(Option.getClassName());
             Connection connection = DriverManager.getConnection(Option.getSQLUrl(), Option.getSQLLogin(), Option.getSQLPwd());
             Statement statement = connection.createStatement();
-            
+
             Insert ins = new Insert(client, statement);
             ins.bench();
 
