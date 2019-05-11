@@ -9,7 +9,7 @@ import java.util.Random;
 public class UpdateSynchronized extends IBenchmark {
 
     public UpdateSynchronized(StoreClient<String, String> _client, Statement _sql) {
-        super("Insert synchronized", _client, _sql);
+        super("Update synchronized", _client, _sql);
     }
 
     @Override
