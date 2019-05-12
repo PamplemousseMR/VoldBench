@@ -57,8 +57,9 @@ public class Option {
             parser.accepts("vdm-p").withRequiredArg().ofType(Integer.class);
             parser.accepts("vdm-n").withRequiredArg().ofType(String.class);
             parser.accepts("sql-u").withRequiredArg().ofType(String.class);
+            parser.accepts("sql-c").withRequiredArg().ofType(String.class);
             parser.accepts("sql-l").withRequiredArg().ofType(String.class);
-            parser.accepts("vdm-p").withRequiredArg().ofType(String.class);
+            parser.accepts("sql-p").withRequiredArg().ofType(String.class);
             parser.accepts("l").withRequiredArg().ofType(Long.class);
             parser.accepts("s").withRequiredArg().ofType(Long.class);
 
@@ -80,11 +81,14 @@ public class Option {
             if (options.has("sql-u")) {
                 s_SQL_URL = (String) options.valueOf("sql-u");
             }
+            if (options.has("sql-c")) {
+                s_SQL_CLASSNAME = (String) options.valueOf("sql-c");
+            }
             if (options.has("sql-l")) {
                 s_SQL_LOGIN = (String) options.valueOf("sql-l");
             }
-            if (options.has("vdm-p")) {
-                s_SQL_PWD = (String) options.valueOf("vdm-p");
+            if (options.has("sql-p")) {
+                s_SQL_PWD = (String) options.valueOf("sql-p");
             }
             if (options.has("l")) {
                 s_LOOP = (Long)options.valueOf("l");
@@ -103,18 +107,20 @@ public class Option {
         System.out.println("voldemort port : " + s_VDM_PORT);
         System.out.println("voldemort name : " + s_VDM_NAME);
         System.out.println("sql url : " + s_SQL_URL);
+        System.out.println("sql classname : " + s_SQL_CLASSNAME);
         System.out.println("sql login : " + s_SQL_LOGIN);
         System.out.println("sql password : " + s_SQL_PWD);
     }
 
     private static void displayHelp() {
         System.out.println("-h: display help");
-        System.out.println("-vdm-u url: set the voldemort url");
+        System.out.println("-vdm-u url : set the voldemort url");
         System.out.println("-vdm-p port: set the voldemort port");
-        System.out.println("-vdm-n : set the db voldemort name");
-        System.out.println("-sql-u url: set the sql url");
-        System.out.println("-sql-l port: set the sql logni");
-        System.out.println("-sql-p : set the db sql password");
+        System.out.println("-vdm-n name : set the db voldemort name");
+        System.out.println("-sql-u url : set the sql url");
+        System.out.println("-sql-c : set the sql classname");
+        System.out.println("-sql-l login : set the sql login");
+        System.out.println("-sql-p pwd : set the db sql password");
     }
 
 }

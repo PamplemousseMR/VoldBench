@@ -43,6 +43,9 @@ class Main {
             UpdateSynchronized updateSynchronized = new UpdateSynchronized(client, statement);
             updateSynchronized.bench();
 
+            Delete del = new Delete(client, statement);
+            del.bench();
+
             connection.close();
         } catch (Exception e) {
             e.printStackTrace();
