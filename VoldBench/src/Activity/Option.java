@@ -114,13 +114,15 @@ public class Option {
 
     private static void displayHelp() {
         System.out.println("-h: display help");
-        System.out.println("-vdm-u url : set the voldemort url");
-        System.out.println("-vdm-p port: set the voldemort port");
-        System.out.println("-vdm-n name : set the db voldemort name");
-        System.out.println("-sql-u url : set the sql url");
-        System.out.println("-sql-c : set the sql classname");
-        System.out.println("-sql-l login : set the sql login");
-        System.out.println("-sql-p pwd : set the db sql password");
+        System.out.println("-vdm-u <url> : set the voldemort url");
+        System.out.println("-vdm-p <port> : set the voldemort port");
+        System.out.println("-vdm-n <name> : set the db voldemort name");
+        System.out.println("-sql-u <url> : set the sql url");
+        System.out.println("-sql-c <classname> : set the sql classname");
+        System.out.println("-sql-l <login> : set the sql login");
+        System.out.println("-sql-p <pwd> : set the db sql password");
+        System.out.println("-l <loop> : set the number of loop");
+        System.out.println("-s <size> : set the database size");
     }
 
 }
