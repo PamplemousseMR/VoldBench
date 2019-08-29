@@ -12,10 +12,6 @@ matrix:
 
     - os: linux
       compiler: javac
-      jdk: oraclejdk8
-
-    - os: linux
-      compiler: javac
       jdk: oraclejdk9
 
     - os: linux
@@ -27,10 +23,6 @@ matrix:
     #     linux open
     #
     #==============================
-
-    - os: linux
-      compiler: javac
-      jdk: openjdk7
 
     - os: linux
       compiler: javac
