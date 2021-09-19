@@ -1,0 +1,24 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    strategy:
+      matrix:
+        version: [adoptopenjdk-8-hotspot-amd64, adoptopenjdk-11-hotspot-amd64]
+        
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build
+        run: |
+          mkdir build
+          /usr/lib/jvm/${{ matrix.version }}/bin/javac -cp "VoldBench/lib/voldemort/*:VoldBench/lib/sql/*" ./VoldBench/src/Activity/Option.java -d build
+          /usr/lib/jvm/${{ matrix.version }}/bin/javac -cp "VoldBench/lib/voldemort/*:VoldBench/lib/sql/*:build" ./VoldBench/src/Benchmark/* -d build
+          /usr/lib/jvm/${{ matrix.version }}/bin/javac -cp "VoldBench/lib/voldemort/*:VoldBench/lib/sql/*:build" ./VoldBench/src/Activity/Main.java -d build
+  

@@ -2,9 +2,9 @@
 
 Benchmark on the nosql DB, Voldemort compared to MySQL.
 
-## Travis
+## CI
 
-[![Build Status](https://travis-ci.com/PamplemousseMR/VoldBench.svg?branch=master)](https://travis-ci.com/PamplemousseMR/VoldBench)
+![Build Status](https://github.com/PamplemousseMR/VoldBench/actions/workflows/build.yml/badge.svg)
 
 ## Getting Started
 
